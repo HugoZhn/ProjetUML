@@ -1,6 +1,7 @@
 package projetuml;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Edition {
 
@@ -65,13 +66,9 @@ public class Edition {
 			boolean changement = true;
 			while(changement){
 				changement = false;
-				for(int i=0; i<this.classement.size()-1; i++){
+				for(int i=0 ; i<this.classement.size()-1; i++){
 					if(this.classement.get(i).getTempsFinal()>this.classement.get(i+1).getTempsFinal()){
-						Participant tmp = this.classement.get(i);
-						this.classement.remove(i);
-						this.classement.add(i, this.classement.get(i+1));
-						this.classement.remove(i+1);
-						this.classement.add(i+1, tmp);
+						Collections.swap(this.classement, i, i+1);
 						changement = true;
 					}
 				}
@@ -86,10 +83,6 @@ public class Edition {
 	public void validerClassement(){
 		this.calculerClassement();
 		this.classementValid = true;
-	}
-
-	public void organiserEtape(double distanceEtape){
-		this.etapes.add(new Etape(this.etapes.size(), distanceEtape));
 	}
 	
 	public String toString() {

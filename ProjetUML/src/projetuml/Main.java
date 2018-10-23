@@ -19,8 +19,8 @@ public class Main {
 		Camion c1 = new Camion("QBC31", 1800);
 		Camion c2 = new Camion("GFC58", 2000);
 		Camion c3 = new Camion("QBO98", 2500);
-		Voiture v1 =new Voiture("YGHT56", 20000);
-		Voiture v2 =new Voiture("VBDH12", 18500);
+		Voiture v1 =new Voiture("YGHT56", 20);
+		Voiture v2 =new Voiture("VBDH12", 18);
 		Voiture v3 =new Voiture("TLKI74", 25000);
 		
 		//Créer les rallyes
@@ -32,16 +32,21 @@ public class Main {
 		Edition e1_r1 = new Edition(r1, today, demain);
 		
 		//Créer les étapes
-		e1_r1.organiserEtape(3200);
+		Etape etape1 = new Etape(e1_r1, 3200);
 		
 		//Créer les participants
 		Participant p1=new Participant(v1,e1_r1,HZ);
 		Participant p2=new Participant(c1,e1_r1,cr4);
 		Participant p3=new Participant(v2,e1_r1,cr5);
 		
-		//On cherche le nom de l'édition		
+		//On cherche le nom de l'édition
 		System.out.println("Cette édition du " + e1_r1.getDateDebER() + " se nomme " + e1_r1.getEditionDe() );
 		System.out.println("Les participants sont : " + e1_r1.getParticipants());
+		
+		etape1.affecterTemps(p1, 9.6);
+		etape1.affecterTemps(p2, 18.6);
+		etape1.affecterTemps(p3, 11.6);
+		etape1.corrigerTemps();
 		System.out.println(e1_r1.getClassement()) ;
 	}
 

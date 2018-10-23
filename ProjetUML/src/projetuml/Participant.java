@@ -36,6 +36,7 @@ public class Participant {
 	}
 
 	public double getTempsFinal() {
+		this.calculerTempsFinal();
 		return tempsFinal;
 	}
 
