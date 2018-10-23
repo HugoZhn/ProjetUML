@@ -28,8 +28,16 @@ public class Etape {
 		this.classement = new ArrayList<>();
 	}
 
-	public void affecterTemps(Participant part, double temps){
-		this.courir.put(part, temps);
+	public int getCodeEtape() {
+		return codeEtape;
+	}
+
+	public double getDistanceEtape() {
+		return distanceEtape;
+	}
+
+	public boolean isClassementValid() {
+		return classementValid;
 	}
 
 	public HashMap<Participant, Double> getCourir() {
@@ -39,22 +47,20 @@ public class Etape {
 	public HashMap<Participant, Double> getCourirTempsCorriges() {
 		return courirTempsCorriges;
 	}
+	
+	public void affecterTemps(Participant part, double temps){
+		this.courir.put(part, temps);
+		this.courirTempsCorriges.put(part, temps*part.getCoeffCorrecteurVehicule());
+	}
 
 	public ArrayList<Participant> getClassement(){
 		this.calculerClassement();
 		return this.classement;
 	}
-	
-	public void corrigerTemps(){
-		for(Participant part: this.courir.keySet()){
-			this.courirTempsCorriges.put(part, this.courir.get(part)*part.getDispariteVehicule());
-		}
-	}
 
 	private void calculerClassement(){
-		this.corrigerTemps();
 		if(!classementValid){
-			for(Participant part: this.courir.keySet()){
+			for(Participant part: this.courirTempsCorriges.keySet()){
 				this.classement.add(part);
 			}
 			boolean changement = true;
@@ -63,12 +69,6 @@ public class Etape {
 				for(int i=0; i<this.classement.size()-1; i++){
 					if(this.courirTempsCorriges.get(this.classement.get(i)) > this.courirTempsCorriges.get(this.classement.get(i+1))){
 						Collections.swap(this.classement, i, i+1);
-						
-//						Participant tmp = this.classement.get(i);
-//						this.classement.remove(i);
-//						this.classement.add(i, this.classement.get(i+1));
-//						this.classement.remove(i+1);
-//						this.classement.add(i+1, tmp);
 						changement = true;
 					}
 				}

@@ -40,8 +40,8 @@ public class Participant {
 		return tempsFinal;
 	}
 
-	public double getDispariteVehicule(){
-		return this.vehicule.disparite();
+	public double getCoeffCorrecteurVehicule(){
+		return this.vehicule.getCoeffCorrecteur();
 	}
 
 	public boolean prendreDepart() {
@@ -55,7 +55,7 @@ public class Participant {
 	public void calculerTempsFinal(){
 		if(!this.disqualifie){
 			for(Etape et: this.edition.getEtapes()){
-				if(et.getCourir().containsKey(this)){
+				if(et.getCourirTempsCorriges().containsKey(this)){
 					this.tempsFinal += et.getCourirTempsCorriges().get(this);
 				}
 			}
@@ -63,7 +63,7 @@ public class Participant {
 	}
 
 	public String toString() {
-		return this.noInscription + " : " + this.coureur.toString();
+		return "N° " + this.noInscription + " - " + this.coureur.toString();
 	}
 
 	@Override

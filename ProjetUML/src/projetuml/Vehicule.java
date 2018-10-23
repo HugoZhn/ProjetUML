@@ -9,7 +9,7 @@ public abstract class Vehicule {
 		this.para = new Parametres(0.05, 0.01);
 	};
 	
-	public abstract double disparite();
+	public abstract double getCoeffCorrecteur();
 
 	@Override
 	public int hashCode() {

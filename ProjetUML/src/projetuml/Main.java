@@ -21,7 +21,7 @@ public class Main {
 		Camion c3 = new Camion("QBO98", 2500);
 		Voiture v1 =new Voiture("YGHT56", 20);
 		Voiture v2 =new Voiture("VBDH12", 18);
-		Voiture v3 =new Voiture("TLKI74", 25000);
+		Voiture v3 =new Voiture("TLKI74", 25);
 		
 		//Créer les rallyes
 		Rallye r1=new Rallye("Rallye des Cardabelles", "Villeneuve-Aveyron","France");
@@ -46,8 +46,13 @@ public class Main {
 		etape1.affecterTemps(p1, 9.6);
 		etape1.affecterTemps(p2, 18.6);
 		etape1.affecterTemps(p3, 11.6);
-		etape1.corrigerTemps();
-		System.out.println(e1_r1.getClassement()) ;
+		
+		int i = 1;
+		for(Participant part : e1_r1.getClassement()) {
+			System.out.print(i + "- ");
+			System.out.println(part + " : " + part.getTempsFinal());
+			i++;
+		}
 	}
 
 }

@@ -6,13 +6,7 @@ public class Coureur {
 	private String prenomCoureur;
 	private Date dateNaissanceC;
 
-
-	/** Constructeur de Coureur
-	 * 
-	 * @param nomCoureur
-	 * @param prenomCoureur
-	 * @param dateNaissanceC
-	 */
+	
 	public Coureur(String nomCoureur, String prenomCoureur, Date dateNaissanceC) {
 		this.nomCoureur = nomCoureur;
 		this.prenomCoureur = prenomCoureur;

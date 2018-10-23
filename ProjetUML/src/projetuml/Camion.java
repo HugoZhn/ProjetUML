@@ -8,7 +8,7 @@ public class Camion extends Vehicule {
 		this.poidsV = pV;
 	}
 	
-	public double disparite() {
+	public double getCoeffCorrecteur() {
 		return super.para.getCoefCorrectifC(this.poidsV);
 	}
 }

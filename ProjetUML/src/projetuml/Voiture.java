@@ -8,7 +8,7 @@ public class Voiture extends Vehicule{
 		this.puissanceV = puiV;
 	}
 	
-	public double disparite() {
+	public double getCoeffCorrecteur() {
 		return super.para.getCoefCorrectifV(this.puissanceV);
 	}
 }
