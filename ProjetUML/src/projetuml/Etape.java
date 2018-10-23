@@ -43,11 +43,11 @@ public class Etape {
 	public HashMap<Participant, Double> getCourir() {
 		return courir;
 	}
-	
+
 	public HashMap<Participant, Double> getCourirTempsCorriges() {
 		return courirTempsCorriges;
 	}
-	
+
 	public void affecterTemps(Participant part, double temps){
 		this.courir.put(part, temps);
 		this.courirTempsCorriges.put(part, temps*part.getCoeffCorrecteurVehicule());
@@ -61,7 +61,9 @@ public class Etape {
 	private void calculerClassement(){
 		if(!classementValid){
 			for(Participant part: this.courirTempsCorriges.keySet()){
-				this.classement.add(part);
+				if(part.prendreDepart()) {
+					this.classement.add(part);
+				}
 			}
 			boolean changement = true;
 			while(changement){

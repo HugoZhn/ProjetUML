@@ -15,7 +15,7 @@ public class Edition {
 	private ArrayList<Participant> classement;
 
 	private ArrayList<Etape> etapes;
-	
+
 
 	public Edition(Rallye editionDe, Date dateDebER, Date dateFinER) {
 		this.editionDe = editionDe;
@@ -30,7 +30,7 @@ public class Edition {
 
 		this.etapes = new ArrayList<Etape>();
 	}
-	
+
 	public Rallye getEditionDe() {
 		return editionDe;
 	}
@@ -46,7 +46,7 @@ public class Edition {
 	public Date getDateFinER() {
 		return dateFinER;
 	}
-	
+
 	public ArrayList<Participant> getParticipants() {
 		return participants;
 	}
@@ -62,7 +62,12 @@ public class Edition {
 
 	private void calculerClassement(){
 		if(!classementValid){
-			this.classement = (ArrayList<Participant>)this.participants.clone();
+			this.classement.clear();
+			for(Participant part: this.participants) {
+				if(part.prendreDepart()) {
+					this.classement.add(part);
+				}
+			}
 			boolean changement = true;
 			while(changement){
 				changement = false;
@@ -84,7 +89,7 @@ public class Edition {
 		this.calculerClassement();
 		this.classementValid = true;
 	}
-	
+
 	public String toString() {
 		return this.editionDe.toString();
 	}
@@ -128,8 +133,8 @@ public class Edition {
 			return false;
 		return true;
 	}
-	
-	
 
-	
+
+
+
 }

@@ -15,9 +15,8 @@ public class Participant {
 	public Participant (Vehicule vehiculeUtilise, Edition editionParticipe, Coureur coureurParticipant) {
 
 		this.noInscription = editionParticipe.getParticipants().size() ;
-
 		this.edition = editionParticipe ;
-		edition.getParticipants().add(this);
+		editionParticipe.getParticipants().add(this);
 
 		this.dateInscription = new Date() ; 
 		this.vehicule = vehiculeUtilise ;
@@ -45,7 +44,7 @@ public class Participant {
 	}
 
 	public boolean prendreDepart() {
-		return this.disqualifie;
+		return !(this.disqualifie);
 	}
 
 	public void disqualifier(){
