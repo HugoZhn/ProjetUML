@@ -25,7 +25,21 @@ public class Participant {
 		this.tempsFinal = 0;
 		this.disqualifie = false;
 	}
+	
+	public Participant (int noInscr, Vehicule vehiculeUtilise, Edition editionParticipe, Coureur coureurParticipant) {
 
+		this.noInscription = noInscr;
+		this.edition = editionParticipe ;
+		editionParticipe.getParticipants().add(this);
+
+		this.dateInscription = new Date() ; 
+		this.vehicule = vehiculeUtilise ;
+		this.coureur = coureurParticipant ;
+
+		this.tempsFinal = 0;
+		this.disqualifie = false;
+	}
+	
 	public int getNoInscription() {
 		return noInscription;
 	}
