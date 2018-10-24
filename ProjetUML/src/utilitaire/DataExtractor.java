@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import projetuml.Connexion;
 import projetuml.Coureur;
 import projetuml.Date;
 import projetuml.Edition;
@@ -15,8 +16,27 @@ import projetuml.Voiture;
 public class DataExtractor {
 
 	private Scanner scanner;
-
-	public void extract(Edition editionConcernee, String filepath) throws FileNotFoundException{
+	
+	public void extractConn(Connexion conn, String filepath) throws FileNotFoundException{
+			
+			this.scanner = new Scanner(new File(filepath));
+			
+			int i = 0;		
+			while(scanner.hasNextLine()){
+				String line = scanner.nextLine();
+				String[] fields = line.split(";");
+				if(i!=0){
+					String em = fields[0];
+					String mdp = fields[1];
+					String auth = fields[2];
+					conn.addNewConn(em, mdp, auth);	
+				}
+				i++;
+			}
+			scanner.close();
+	}
+	
+	public void extractEdition(Edition editionConcernee, String filepath) throws FileNotFoundException{
 		
 		this.scanner = new Scanner(new File(filepath));
 		ArrayList<Etape> etapes = new ArrayList<Etape>();
