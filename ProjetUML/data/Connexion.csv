@@ -1,0 +1,8 @@
+Email;Password;Auth;Role
+Yang@gmail.com;y1234;User;Organisateur
+Gardo@gmail.com;g1234;Partenaire;Organisateur
+Marc@gmail.com;m1234;User;Coureur
+Hugo@gmail.com;h1234;User;Organisateur
+Imane@gmail.com;i1234;Organisateur;Organisateur
+Kam@gmail.com;k1234;Jury;Organisateur
+Bidon@gmail.com;b1234;User;Coureur
