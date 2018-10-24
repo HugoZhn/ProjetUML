@@ -1,15 +1,20 @@
 package projetuml;
 
+import java.io.FileNotFoundException;
+
 public abstract class Vehicule {
 	protected String idVehicule;
+	protected String modele;
 	protected Parametres para;
 	
-	public Vehicule(String idV) {
+	public Vehicule(String idV, String modele) {
 		this.idVehicule = idV;
+		this.modele = modele;
 		this.para = new Parametres(0.05, 0.1);
 	};
 	
 	public abstract double getCoeffCorrecteur();
+	public abstract void save() throws FileNotFoundException;
 
 	@Override
 	public int hashCode() {

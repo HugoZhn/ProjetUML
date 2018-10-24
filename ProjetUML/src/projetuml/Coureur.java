@@ -5,6 +5,7 @@ public class Coureur {
 	private String nomCoureur;
 	private String prenomCoureur;
 	private Date dateNaissanceC;
+	private String groupeSanguin;
 
 	
 	public Coureur(String nomCoureur, String prenomCoureur, Date dateNaissanceC) {

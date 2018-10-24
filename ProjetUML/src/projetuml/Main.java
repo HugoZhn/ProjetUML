@@ -1,42 +1,42 @@
 package projetuml;
 
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
 
-import utilitaire.*;
+import utilitaire.DataExtractor;
 
 public class Main {
 
-	public static void main(String[] args) throws FileNotFoundException {		
+	public static void main(String[] args) {		
 		/*Date today = new Date();
 
-		//Crï¿½er des coureurs
+		//Créer des coureurs
 		Coureur HZ= new Coureur("Hugo", "Zahn", today);
 		Coureur KH = new Coureur("Kam", "Hachmi", today);
 		Coureur UB = new Coureur("Usain", "Bolt", today);
 
-		//Crï¿½er les vï¿½hicules
+		//Créer les véhicules
 		Voiture v1 =new Voiture("YGHT56", 20);
 		Voiture v2 =new Voiture("VBDH12", 18);
 		Voiture v3 =new Voiture("TLKI74", 25);
 
-		//Crï¿½er les rallyes
+		//Créer les rallyes
 		Rallye rallyeCarda=new Rallye("Rallye des Cardabelles", "Villeneuve-Aveyron","France");
 
-		//Crï¿½er les ï¿½ditions
+		//Créer les éditions
 		Date dateFin = new Date(31,10,2018);
 		Edition editionCardabelles = new Edition(rallyeCarda, today, dateFin);
 
-		//Crï¿½er les ï¿½tapes
+		//Créer les étapes
 		Etape etape1 = new Etape(editionCardabelles, 3200);
 
-		//Crï¿½er les participants
+		//Créer les participants
 		Participant p1=new Participant(v1, editionCardabelles, HZ);
 		Participant p2=new Participant(v2, editionCardabelles, KH);
 		Participant p3=new Participant(v3, editionCardabelles, UB);
 
-		//On cherche le nom de l'ï¿½dition
-		System.out.println("Cette ï¿½dition du " + editionCardabelles.getDateDebER() + " se nomme " + editionCardabelles.getEditionDe() );
+		//On cherche le nom de l'édition
+		System.out.println("Cette édition du " + editionCardabelles.getDateDebER() + " se nomme " + editionCardabelles.getEditionDe() );
 
 		System.out.println();
 
@@ -51,25 +51,15 @@ public class Main {
 			System.out.println(part + " : " + part.getTempsFinal());
 			i++;
 		}*/
-		
+
 		DataExtractor test = new DataExtractor();
-		
-		//Connexion
-		Connexion conn = new Connexion();
-		test.extractConn(conn, "./data/Connexion.csv");
-	
-		Iterator<String> itConn;
-		HashMap<String, String> lsConn = conn.getConn();
-		itConn = lsConn.keySet().iterator();
-		while(itConn.hasNext()) {
-			String em = itConn.next();
-			System.out.println("Email : " +em+", Mot de pass : " +lsConn.get(em));
-		}
-		
-		//Edition
 		Rallye superBesse = new Rallye("Super Besse", "Lima", "Perou");
 		Edition superBesse1 = new Edition(superBesse, new Date(), new Date(1,1,2019));
-		test.extractEdition(superBesse1, "./data/SuperBesse.csv");
+		try {
+			test.extract(superBesse1, "./data/SuperBesse.csv");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 		int j=1;
 		for(Etape et : superBesse1.getEtapes()){
