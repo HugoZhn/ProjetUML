@@ -3,7 +3,6 @@ package projetuml;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Map.Entry;
 
 public class Statistiques {
@@ -12,11 +11,6 @@ public class Statistiques {
 	private int nombreInscriptions, nombreReajustement;
 	private Participant bestCoureurEtape, worstCoureurEtape;
 	private Camion poidsV;
-
-
-
-	public Statistiques() {
-	}
 
 
 	public double getMoyenneTempsEtape() {
@@ -53,16 +47,14 @@ public class Statistiques {
 
 	//Calcul de la moyenne des temps d'une étape
 	public double calculMoyenneEtape(Etape e){
-		HashMap<Participant, Double> courir=e.getCourirTempsCorriges();
-		moyenneTempsEtape=0;
-		Iterator it;	
-		if(courir!=null && courir.size()!=0) {
-			it = courir.keySet().iterator();
-			while(it.hasNext()) {
-				moyenneTempsEtape = moyenneTempsEtape + courir.get(it.next());
-			}	
-			moyenneTempsEtape = moyenneTempsEtape / (courir.size());
+		HashMap<Participant, Double> courir = e.getCourirTempsCorriges();
+		moyenneTempsEtape = 0;
+		int i = 0;
+		for(Double temps : courir.values()) {
+			moyenneTempsEtape += temps;
+			i++;
 		}
+		moyenneTempsEtape /= i;
 		return moyenneTempsEtape;
 	}
 

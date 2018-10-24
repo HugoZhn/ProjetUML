@@ -7,28 +7,44 @@ public class Coureur {
 	private String nomCoureur;
 	private String prenomCoureur;
 	private Date dateNaissanceC;
+	private String nationalite;
 	private String groupeSanguin;
+	private String sexe;
 
 	
-	public Coureur(String nomCoureur, String prenomCoureur, Date dateNaissanceC) {
+	public Coureur(String nomCoureur, String prenomCoureur, Date dateNaissanceC, String nationalite, String groupeSanguin, String sexe) {
 		this.nomCoureur = nomCoureur;
 		this.prenomCoureur = prenomCoureur;
 		this.dateNaissanceC = dateNaissanceC;
+		this.nationalite= nationalite;
+		this.groupeSanguin = groupeSanguin;
+		this.sexe = sexe;
 	}
 
 	public String getNomCoureur() {
-		return this.nomCoureur;
+		return nomCoureur;
 	}
 
 	public String getPrenomCoureur() {
-		return this.prenomCoureur;
+		return prenomCoureur;
 	}
 
 	public Date getDateNaissanceC() {
-		return this.dateNaissanceC;
+		return dateNaissanceC;
 	}
 	
-	
+	public String getNationalite() {
+		return nationalite;
+	}
+
+	public String getGroupeSanguin() {
+		return groupeSanguin;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
 	public String toString() {
 		return this.prenomCoureur.toString() + " " + this.nomCoureur.toString() ;
 	}

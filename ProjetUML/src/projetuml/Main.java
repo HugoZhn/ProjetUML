@@ -9,21 +9,17 @@ import utilitaire.TimeParser;
 
 public class Main {
 
-	public static void main(String[] args) {	
-		
+	public static void main(String[] args) throws FileNotFoundException{	
+
 		// Rallye Super Bresse et Val Thorens donnés
 		DataExtractor deX = new DataExtractor();
 		Rallye superBesse = new Rallye("Super Besse", "Lima", "Perou");
 		Edition superBesse1 = new Edition(superBesse, new Date(1,1,2017), new Date(16,8, 2017));
-		
+
 		System.out.println(superBesse1);
-		
-		try {
-			deX.extract(superBesse1, "./data/SuperBesse.csv");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+
+		deX.extract(superBesse1, "./data/SuperBesse.csv");
+
 		int j=1;
 		for(Etape et : superBesse1.getEtapes()){
 			int i = 1;
@@ -37,7 +33,7 @@ public class Main {
 			System.out.println("\n");
 			j++;
 		}
-		
+
 		System.out.println("Classement définitif : \n");
 		int i = 1;
 		for(Participant part: superBesse1.getClassement()){
@@ -46,20 +42,16 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		System.out.println("\n _________________________________ \n");
-		
+
 		Rallye valThorens = new Rallye("Val Thorens", "Val Thorens ", "France");
 		Edition valThorens1 = new Edition(valThorens, new Date(16,8,2017), new Date(12,12,2017));
 
 		System.out.println(valThorens1);
-		
-		try {
-			deX.extract(valThorens1, "./data/ValThorens.csv");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+
+		deX.extract(valThorens1, "./data/ValThorens.csv");
+
 		j=1;
 		for(Etape et : valThorens1.getEtapes()){
 			int h = 1;
@@ -73,7 +65,7 @@ public class Main {
 			System.out.println("\n");
 			j++;
 		}
-		
+
 		System.out.println("Classement définitif : \n");
 		i = 1;
 		for(Participant part: valThorens1.getClassement()){
@@ -82,17 +74,17 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		System.out.println("\n _________________________________ \n");
-		
+
 		System.out.println("Test classements intermédiaires");
-		
+
 		Date today = new Date();
 
 		//Créer des coureurs
-		Coureur HZ= new Coureur("Hugo", "Zahn", today);
-		Coureur KH = new Coureur("Kam", "Hachmi", today);
-		Coureur UB = new Coureur("Usain", "Bolt", today);
+		Coureur HZ= new Coureur("Hugo", "Zahn", today, "France", "AB-", "H");
+		Coureur KH = new Coureur("Kam", "Hachmi", today, "France", "A+", "F");
+		Coureur UB = new Coureur("Usain", "Bolt", today, "Jamaique", "AB+", "H");
 
 		//Créer les véhicules
 		Voiture v1 =new Voiture("YGHT56", "Renault Clio", 200);
@@ -121,7 +113,7 @@ public class Main {
 
 		etape1.affecterTemps(p1, 96);
 		etape1.affecterTemps(p2, 186);
-		
+
 		System.out.println("Classement provisoire étape :");
 		i = 1;
 		for(Participant part: etape1.getClassement()){
@@ -130,9 +122,9 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		etape1.affecterTemps(p3, 106);
-		
+
 		System.out.println("\nClassement étape :");	
 		i = 1;
 		for(Participant part: etape1.getClassement()){
@@ -141,7 +133,7 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		System.out.println("\nClassement général provisoire :");	
 		i = 1;
 		for(Participant part: editionCardabelles.getClassement()){
@@ -150,13 +142,13 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		Etape etape2 = new Etape(editionCardabelles, 5900);
-		
+
 		etape2.affecterTemps(p1, 180);
 		etape2.affecterTemps(p2,200);
 		etape2.affecterTemps(p3, 166);
-		
+
 		System.out.println("\nClassement général :");	
 		i = 1;
 		for(Participant part: editionCardabelles.getClassement()){
@@ -165,13 +157,13 @@ public class Main {
 			System.out.println(part + " : " + chrono);
 			i++;
 		}
-		
+
 		Paris premierparis = new Paris(10, HZ, editionCardabelles) ;
-		
+
 		editionCardabelles.validerClassement();
-		
+
 		System.out.println("\nSuite à votre pari  concernant " + HZ + ", votre gain s'élève à : " + premierparis.getGain() + " €") ;
-		
+
 		Statistiques s1 = new Statistiques();
 		s1.nombreInscriptions(editionCardabelles);
 		System.out.println();
@@ -183,10 +175,10 @@ public class Main {
 		s1.worstTempsEtape(etape1);
 		s1.worstCoureurEtape(etape1);
 		System.out.println();
-		System.out.println("Moyenne temps etape 1: " + s1.getMoyenneTempsEtape());
-		System.out.println("Ecart type temps etape 1: " + s1.getEcartTypeEtape());
-		System.out.println("Meilleur temps : " + s1.getBestTempsEtape() + ", pour le coureur " + s1.getBestCoureurEtape());
-		System.out.println("Moins bon temps : " + s1.getWorstTempsEtape()+ ", pour le malheureux coureur " + s1.getWorstCoureurEtape());
-		
+		System.out.println("Moyenne temps etape 1: " + new TimeParser(s1.getMoyenneTempsEtape()));
+		System.out.println("Ecart type temps etape 1: " + new TimeParser(s1.getEcartTypeEtape()));
+		System.out.println("Meilleur temps : " + new TimeParser(s1.getBestTempsEtape()) + ", pour le coureur " + s1.getBestCoureurEtape());
+		System.out.println("Moins bon temps : " + new TimeParser(s1.getWorstTempsEtape()) + ", pour le malheureux coureur " + s1.getWorstCoureurEtape());
+
 	}
 }
