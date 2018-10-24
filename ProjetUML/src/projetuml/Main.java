@@ -172,5 +172,21 @@ public class Main {
 		
 		System.out.println("\nSuite à votre pari  concernant " + HZ + ", votre gain s'élève à : " + premierparis.getGain() + " €") ;
 		
+		Statistiques s1 = new Statistiques();
+		s1.nombreInscriptions(editionCardabelles);
+		System.out.println();
+		System.out.println("Nombre d'inscription à l'édition Cardabelles : " + s1.getNombreInscriptions());
+		s1.calculMoyenneEtape(etape1);
+		s1.calculEcartTypeEtape(etape1);
+		s1.bestTempsEtape(etape1);
+		s1.bestCoureurEtape(etape1);
+		s1.worstTempsEtape(etape1);
+		s1.worstCoureurEtape(etape1);
+		System.out.println();
+		System.out.println("Moyenne temps etape 1: " + s1.getMoyenneTempsEtape());
+		System.out.println("Ecart type temps etape 1: " + s1.getEcartTypeEtape());
+		System.out.println("Meilleur temps : " + s1.getBestTempsEtape() + ", pour le coureur " + s1.getBestCoureurEtape());
+		System.out.println("Moins bon temps : " + s1.getWorstTempsEtape()+ ", pour le malheureux coureur " + s1.getWorstCoureurEtape());
+		
 	}
 }
