@@ -27,7 +27,8 @@ public class Main {
 			for(Participant part : et.getClassement()) {
 				System.out.print(i + " - ");
 				TimeParser chrono = new TimeParser(et.getCourirTempsCorriges().get(part));
-				System.out.println(part + " : " + chrono);
+				TimeParser chronoNon = new TimeParser(et.getCourir().get(part));
+				System.out.println(part + " : " + chrono + "(" + chronoNon + ")");
 				i++;
 			}
 			System.out.println("\n");

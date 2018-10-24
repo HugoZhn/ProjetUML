@@ -46,7 +46,7 @@ public class Coureur {
 	}
 
 	public String toString() {
-		return this.prenomCoureur.toString() + " " + this.nomCoureur.toString() ;
+		return this.prenomCoureur + " " + this.nomCoureur ;
 	}
 
 	@Override

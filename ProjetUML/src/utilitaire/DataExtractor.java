@@ -3,6 +3,7 @@ package utilitaire;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -33,7 +34,7 @@ public class DataExtractor {
 
 	private ArrayList<Coureur> extractCoureurs() throws FileNotFoundException{
 		ArrayList<Coureur> coureurs = new ArrayList<Coureur>();
-		this.scanner = new Scanner(new File("./data/Puissances.csv"));
+		this.scanner = new Scanner(new File("./data/Coureurs.csv"));
 
 		String line = scanner.nextLine();
 
@@ -42,10 +43,10 @@ public class DataExtractor {
 			String[] fields = line.split(";");
 			String[] names = fields[0].split(" ");
 			String nom = names[1];
-			String prenom = names[2];
+			String prenom = names[0];
 			
 			String[] dateSplited = fields[1].split("/");
-			Date dateNaiss = new Date(Integer.parseInt(dateSplited[0]), Integer.parseInt(dateSplited[1]), Integer.parseInt(dateSplited[3]));
+			Date dateNaiss = new Date(Integer.parseInt(dateSplited[0]), Integer.parseInt(dateSplited[1]), Integer.parseInt(dateSplited[2]));
 			
 			String nat = fields[2];
 			String gpSang = fields[3];
@@ -79,7 +80,7 @@ public class DataExtractor {
 			String[] noms = fields[0].split(" ");
 			Coureur newCour =  null;
 			for(Coureur cour : coureursBD) {
-				if(noms[1]==cour.getNomCoureur() && noms[0]==cour.getPrenomCoureur()) {
+				if(noms[1].equals(cour.getNomCoureur()) && noms[0].equals(cour.getPrenomCoureur())) {
 					newCour = cour;
 					break;
 				}
