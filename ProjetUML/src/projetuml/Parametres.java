@@ -10,7 +10,7 @@ public class Parametres {
 	}
 
 	public double getCoefCorrectifV(int puissanceV) {
-		int ecart = puissanceV-20;
+		int ecart = puissanceV-200;
 		double disV = 1 + (ecart * this.coefCorrectifV);
 		return disV;
 	}

@@ -60,6 +60,7 @@ public class Etape {
 
 	private void calculerClassement(){
 		if(!classementValid){
+			this.classement.clear();
 			for(Participant part: this.courirTempsCorriges.keySet()){
 				if(part.prendreDepart()) {
 					this.classement.add(part);

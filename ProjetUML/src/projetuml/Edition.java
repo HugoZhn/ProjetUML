@@ -3,6 +3,8 @@ package projetuml;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import utilitaire.Date;
+
 public class Edition {
 
 	private Rallye editionDe;
@@ -47,6 +49,10 @@ public class Edition {
 		return dateFinER;
 	}
 
+	public boolean isClassementValid() {
+		return classementValid;
+	}
+
 	public ArrayList<Participant> getParticipants() {
 		return participants;
 	}
@@ -81,13 +87,13 @@ public class Edition {
 		}
 	}
 
-	public void setClassement(ArrayList<Participant> classement) {
-		this.classement = classement;
-	}
-
 	public void validerClassement(){
 		this.calculerClassement();
 		this.classementValid = true;
+	}
+	
+	public Coureur connaitreVainqueur () {
+		return this.classement.get(0).getCoureur() ;
 	}
 
 	public String toString() {

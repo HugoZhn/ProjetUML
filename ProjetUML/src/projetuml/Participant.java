@@ -1,5 +1,7 @@
 package projetuml;
 
+import utilitaire.Date;
+
 public class Participant {
 
 	private int noInscription ; 
@@ -43,7 +45,15 @@ public class Participant {
 	public int getNoInscription() {
 		return noInscription;
 	}
+	
+	public Vehicule getVehicule() {
+		return this.vehicule;
+	}
 
+	public Coureur getCoureur() {
+		return this.coureur;
+	}
+	
 	public Date getDateInscription() {
 		return dateInscription;
 	}
@@ -125,7 +135,5 @@ public class Participant {
 			return false;
 		return true;
 	}
-	
-	
 
 }

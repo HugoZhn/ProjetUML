@@ -10,7 +10,7 @@ public abstract class Vehicule {
 	public Vehicule(String idV, String modele) {
 		this.idVehicule = idV;
 		this.modele = modele;
-		this.para = new Parametres(0.05, 0.1);
+		this.para = new Parametres(0.005, 0.1);
 	};
 	
 	public abstract double getCoeffCorrecteur();

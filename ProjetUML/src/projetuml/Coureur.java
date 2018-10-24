@@ -1,5 +1,7 @@
 package projetuml;
 
+import utilitaire.Date;
+
 public class Coureur {
 
 	private String nomCoureur;
