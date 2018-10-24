@@ -53,6 +53,7 @@ public class Participant {
 
 	public void calculerTempsFinal(){
 		if(!this.disqualifie){
+			this.tempsFinal = 0;
 			for(Etape et: this.edition.getEtapes()){
 				if(et.getCourirTempsCorriges().containsKey(this)){
 					this.tempsFinal += et.getCourirTempsCorriges().get(this);

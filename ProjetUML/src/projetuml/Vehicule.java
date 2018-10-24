@@ -6,7 +6,7 @@ public abstract class Vehicule {
 	
 	public Vehicule(String idV) {
 		this.idVehicule = idV;
-		this.para = new Parametres(0.05, 0.01);
+		this.para = new Parametres(0.05, 0.1);
 	};
 	
 	public abstract double getCoeffCorrecteur();

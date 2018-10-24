@@ -72,7 +72,7 @@ public class Edition {
 			while(changement){
 				changement = false;
 				for(int i=0 ; i<this.classement.size()-1; i++){
-					if(this.classement.get(i).getTempsFinal()>this.classement.get(i+1).getTempsFinal()){
+					if(this.classement.get(i).getTempsFinal()>this.classement.get(i+1).getTempsFinal()){	
 						Collections.swap(this.classement, i, i+1);
 						changement = true;
 					}
