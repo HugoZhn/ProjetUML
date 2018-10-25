@@ -46,8 +46,7 @@ public class DataExtractor {
 				String em = fields[0];
 				String mdp = fields[1];
 				String auth = fields[2];
-				String role = fields[3];
-				conn.addNewConn(em, mdp, auth, role);	
+				conn.addNewConn(em, mdp, auth);	
 			}
 			i++;
 		}

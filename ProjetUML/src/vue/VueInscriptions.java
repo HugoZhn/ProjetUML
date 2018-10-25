@@ -6,6 +6,7 @@
 package vue;
 
 import controler.Controler;
+import utilitaire.Libelle;
 
 /**
  *
@@ -14,6 +15,7 @@ import controler.Controler;
 public class VueInscriptions extends javax.swing.JFrame {
 
     Controler controler;
+    String em;
     
     /**
      * Creates new form VueInscription
@@ -22,6 +24,7 @@ public class VueInscriptions extends javax.swing.JFrame {
         initComponents();
         dessinerInscription();
         this.controler = new Controler();
+        this.em = em;
     }
 
     /**
@@ -67,6 +70,11 @@ public class VueInscriptions extends javax.swing.JFrame {
         });
 
         btnNewInscr.setText("jButton1");
+        btnNewInscr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewInscrActionPerformed(evt);
+            }
+        });
 
         btnRallye.setText("jButton1");
 
@@ -122,11 +130,27 @@ public class VueInscriptions extends javax.swing.JFrame {
         this.controler.Deconnecter();
     }//GEN-LAST:event_btnDeconnecterActionPerformed
 
+    private void btnNewInscrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInscrActionPerformed
+        this.dispose();
+        //this.controler.Deconnecter();
+    }//GEN-LAST:event_btnNewInscrActionPerformed
+
     private void dessinerInscription(){
-        lblInscription.setText("Vos inscriptions");
+        lblInscription.setText(Libelle.INSCRIPTION_COUREUR);
         
-        //set les titres de tableau (dateI, rallye, edition, statut, button voir)
-        btnDeconnecter.setLabel("Se déconnecter");
+        dessinerTable();      
+        
+        btnRallye.setLabel(Libelle.RALLYES);
+        btnNewInscr.setLabel(Libelle.ADD);
+        btnDeconnecter.setLabel(Libelle.DECONNECTER);
+    }
+    
+    private void dessinerTable(){
+         //set les titres de tableau (dateI, rallye, edition, statut, button voir)
+        String[] colNom = {ColNom.DATE,ColNom.RALLYE,ColNom.EDITION,ColNom.COUREUR,ColNom.STATUT,ColNom.CHECK}; 
+        String[][] donnee = {};
+        
+        tabInscriptions.setModel(new javax.swing.table.DefaultTableModel(donnee, colNom));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -138,4 +162,15 @@ public class VueInscriptions extends javax.swing.JFrame {
     private javax.swing.JLabel lblInscription;
     private javax.swing.JTable tabInscriptions;
     // End of variables declaration//GEN-END:variables
+
+    //Constants des noms de colonnes
+    private static class ColNom {
+        public static final String DATE = "Date";
+        public static final String RALLYE = "Rallye";
+        public static final String EDITION = "Edition";
+        public static final String COUREUR = "Coureur";
+        public static final String STATUT = "Statut";
+        public static final String CHECK = "Check";
+    }
+    
 }

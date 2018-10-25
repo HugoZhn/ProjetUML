@@ -5,7 +5,6 @@
  */
 package controler;
 
-import java.util.*;
 import java.io.*;
 
 import model.Coureur;
@@ -13,7 +12,6 @@ import model.Coureur;
 import utilitaire.Connexion;
 import utilitaire.Auth;
 import utilitaire.DataExtractor;
-import utilitaire.Role;
 import vue.*;
 
 /**
@@ -54,14 +52,14 @@ public class Controler {
         vConn.setVisible(true);
     }
     
-    public void SaveInscrireCompte(String em, String mdp, String nom, String prenom, String dateNaissance, String groupeS){
+    public void SaveInscrireCompte(String em, String mdp,String nom, String prenom, String sexe, String dateNaissance, String groupeS, String nationalite){
         PrintWriter pw;
         
         //save connxion
         String filepathConn = "./data/Connexion.csv";
         try{
             pw = new PrintWriter(new FileOutputStream(filepathConn,true));
-            pw.println(em+";"+mdp+";"+Auth.USER+";"+Role.COUREUR);
+            pw.println(em+";"+mdp+";"+Auth.USER);
             pw.flush();
             pw.close();
         }catch(FileNotFoundException ex){
@@ -72,7 +70,7 @@ public class Controler {
         String filepathC = "./data/Coureurs.csv";
         try{            
             pw = new PrintWriter(new FileOutputStream(filepathC,true));
-            pw.println(nom+";"+prenom+";"+dateNaissance+";"+groupeS);
+            pw.println(nom+";"+prenom+";"+sexe+";"+dateNaissance+";"+groupeS+";"+nationalite);
             pw.flush();
             pw.close();
         }catch(FileNotFoundException ex){
@@ -82,4 +80,7 @@ public class Controler {
         VueConnexion vConn = new VueConnexion(false);
         vConn.setVisible(true);
     }
+    
+    // 
+   
 }

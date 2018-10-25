@@ -7,6 +7,8 @@ package vue;
 
 import controler.Controler;
 import utilitaire.Connexion;
+import utilitaire.Civilite;
+import utilitaire.Libelle;
 
 /**
  *
@@ -46,9 +48,9 @@ public class VueInscrireCompte extends javax.swing.JFrame {
         lblDateNaiss = new javax.swing.JLabel();
         txtDateNaiss = new javax.swing.JTextField();
         lblGroupeSang = new javax.swing.JLabel();
-        lblRhesus = new javax.swing.JLabel();
+        lblNationalite = new javax.swing.JLabel();
         txtGroupeSang = new javax.swing.JTextField();
-        txtRhesus = new javax.swing.JTextField();
+        txtNationalite = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         lblNom = new javax.swing.JLabel();
         txtNom = new javax.swing.JTextField();
@@ -56,6 +58,8 @@ public class VueInscrireCompte extends javax.swing.JFrame {
         txtPrenom = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         lblErreur = new javax.swing.JLabel();
+        lblSexe = new javax.swing.JLabel();
+        cboSexe = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(663, 489));
@@ -83,11 +87,11 @@ public class VueInscrireCompte extends javax.swing.JFrame {
 
         lblGroupeSang.setText("jLabel4");
 
-        lblRhesus.setText("jLabel5");
+        lblNationalite.setText("jLabel5");
 
         txtGroupeSang.setText("jTextField3");
 
-        txtRhesus.setText("jTextField4");
+        txtNationalite.setText("jTextField4");
 
         btnSave.setText("jButton1");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +111,10 @@ public class VueInscrireCompte extends javax.swing.JFrame {
         lblErreur.setForeground(new java.awt.Color(255, 0, 0));
         lblErreur.setText("jLabel1");
 
+        lblSexe.setText("jLabel1");
+
+        cboSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,17 +122,23 @@ public class VueInscrireCompte extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnConnecter)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblRhesus)
-                                .addGap(176, 176, 176)))
-                        .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jSeparator1)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnConnecter)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblNationalite)
+                                    .addGap(176, 176, 176)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(lblSexe)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cboSexe, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(238, 238, 238)
                 .addComponent(btnSave)
@@ -135,7 +149,7 @@ public class VueInscrireCompte extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtRhesus, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNationalite, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,14 +207,16 @@ public class VueInscrireCompte extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDateNaiss)
-                    .addComponent(txtDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDateNaiss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSexe)
+                    .addComponent(cboSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRhesus)
-                    .addComponent(txtRhesus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNationalite)
+                    .addComponent(txtNationalite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGroupeSang)
                     .addComponent(txtGroupeSang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(lblErreur))
@@ -222,6 +238,15 @@ public class VueInscrireCompte extends javax.swing.JFrame {
         String prenom = txtPrenom.getText();
         String dateN = txtDateNaiss.getText();
         String groupeS = txtGroupeSang.getText();
+        String nationalite = txtNationalite.getText();
+        String sexe = cboSexe.getSelectedItem().toString();
+        
+        switch(sexe){
+            case Civilite.MONSIEUR : 
+                sexe = Civilite.HOMME;break;
+            case Civilite.MADAME : 
+                sexe = Civilite.FEMME;break;
+        }
         
         if(this.conn.checkConnExist(txtEmail.getText())){
             lblErreur.setText("Cet adresse d'email existe déjà");
@@ -230,54 +255,63 @@ public class VueInscrireCompte extends javax.swing.JFrame {
                 lblErreur.setText("Veillez compléter vos données");
             } else {
                 this.dispose();
-                this.controler.SaveInscrireCompte(em, mdp, nom, prenom, dateN, groupeS);                
+                this.controler.SaveInscrireCompte(em, mdp, nom, prenom, sexe, dateN, groupeS,nationalite);                
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void dessinerInscrireCompte(){
-        btnConnecter.setText("Connecter");
-        btnSave.setText("Save");
+        btnConnecter.setText(Libelle.DECONNECTER);
+        btnSave.setText(Libelle.SAVE);
         
-        lblSinscrire.setText("S'incrire");
+        lblSinscrire.setText(Libelle.SINSCRIRE);
         
-        lblEmail.setText("Adresse e-mail :");
-        lblMdp.setText("Mpt de passe :");
-        txtEmail.setText("");
-        txtMdp.setText("");
-        lblErreur.setText("");
+        lblEmail.setText(Libelle.EMAIL);
+        lblMdp.setText(Libelle.MDP);
+        txtEmail.setText(Libelle.VIDE);
+        txtMdp.setText(Libelle.VIDE);
+        lblErreur.setText(Libelle.VIDE);
         
-        lblNom.setText("Nom :");
-        lblPrenom.setText("Prenom :");
-        lblDateNaiss.setText("Date de naissance :");
-        lblGroupeSang.setText("Groupe sanguin :");
-        lblRhesus.setText("Rhésus :");
-        txtNom.setText("");
-        txtPrenom.setText("");
-        txtDateNaiss.setText("");
-        txtGroupeSang.setText("");
-        txtRhesus.setText("");
+        lblNom.setText(Libelle.NOM);
+        lblPrenom.setText(Libelle.PRENOM);
+        lblDateNaiss.setText(Libelle.DATENAISSANCE);
+        lblGroupeSang.setText(Libelle.GROUPESANGUIN);
+        lblNationalite.setText(Libelle.NATIONALITE);
+        lblSexe.setText(Libelle.SEXE);
+        
+        txtNom.setText(Libelle.VIDE);
+        txtPrenom.setText(Libelle.VIDE);
+        txtDateNaiss.setText(Libelle.VIDE);
+        txtGroupeSang.setText(Libelle.VIDE);
+        txtNationalite.setText(Libelle.VIDE);
+        
+        cboSexe.removeAllItems();
+        cboSexe.addItem(Civilite.MONSIEUR);
+        cboSexe.addItem(Civilite.MADAME);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConnecter;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> cboSexe;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDateNaiss;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblErreur;
     private javax.swing.JLabel lblGroupeSang;
     private javax.swing.JLabel lblMdp;
+    private javax.swing.JLabel lblNationalite;
     private javax.swing.JLabel lblNom;
     private javax.swing.JLabel lblPrenom;
-    private javax.swing.JLabel lblRhesus;
+    private javax.swing.JLabel lblSexe;
     private javax.swing.JLabel lblSinscrire;
     private javax.swing.JTextField txtDateNaiss;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtGroupeSang;
     private javax.swing.JPasswordField txtMdp;
+    private javax.swing.JTextField txtNationalite;
     private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtPrenom;
-    private javax.swing.JTextField txtRhesus;
     // End of variables declaration//GEN-END:variables
+
 }

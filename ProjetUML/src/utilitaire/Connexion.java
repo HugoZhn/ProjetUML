@@ -8,12 +8,10 @@ public class Connexion {
     //peut aussi faire une collection
 	HashMap<String, String> conn;
 	HashMap<String, String> auth;
-	HashMap<String, String> role;
 	
 	public Connexion(){
 		this.conn = new HashMap<String, String>();
 		this.auth = new HashMap<String, String>();
-		this.role = new HashMap<String, String>();
                 try{
                     this.chargerConn();                    
                 }catch(FileNotFoundException ex){
@@ -21,10 +19,9 @@ public class Connexion {
                 }
 	}
 
-	public void addNewConn(String em, String mdp, String au, String ro) {
+	public void addNewConn(String em, String mdp, String au) {
 		this.conn.put(em, mdp);
 		this.auth.put(em, au);
-		this.role.put(em, ro);
 	}
 	
 	public boolean checkConn(String em, String mdp) {
@@ -46,10 +43,6 @@ public class Connexion {
 	public String getAuth(String em) {
 		return this.auth.get(em);
 	}
-        
-        public String getRole(String em) {
-            return this.role.get(em);
-        }
         
         private void chargerConn() throws FileNotFoundException{
             DataExtractor test = new DataExtractor();

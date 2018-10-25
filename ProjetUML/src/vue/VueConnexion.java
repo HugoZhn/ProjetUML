@@ -5,9 +5,8 @@
  */
 package vue;
 
-import java.io.FileNotFoundException;
 import controler.Controler;
-import utilitaire.Connexion;
+import utilitaire.Libelle;
 
 /**
  *
@@ -155,13 +154,13 @@ public class VueConnexion extends javax.swing.JFrame {
                 this.dispose();
                 this.controler.ConnValider(txtEmail.getText(), pswMdp.getText());  
             } else {
-                lblErreur.setText("Veuillez saisir votre adresse e-mail"); 
+                lblErreur.setText(Libelle.ERR_EMAIL); 
             }
         } else {
             if(!adrNull){
-                lblErreur.setText("Veuillez saisir votre mot de passe");
+                lblErreur.setText(Libelle.ERR_MDP);
             }else {                
-                lblErreur.setText("Veuillez saisir votre adresse e-mail et mot de passe");  
+                lblErreur.setText(Libelle.ERR_EMAIL_MDP_SAISIE);  
             }
         }        
     }//GEN-LAST:event_btnValiderActionPerformed
@@ -172,20 +171,20 @@ public class VueConnexion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInscrireActionPerformed
     
     private void dessinerConnexion(Boolean erreur){
-        lblBienvenue.setText("Bienvenu sur le site de la FFRAG");
-        lblConnexion.setText("Connexion FFRAG");
+        lblBienvenue.setText(Libelle.BIENVENUE);
+        lblConnexion.setText(Libelle.CONNEXION);
         
-        lblErreur.setText("");
-        lblEmail.setText("Adresse e-mail");
-        lblMdp.setText("Mot de passe");        
+        lblErreur.setText(Libelle.VIDE);
+        lblEmail.setText(Libelle.EMAIL);
+        lblMdp.setText(Libelle.MDP);        
         txtEmail.setText("Yang@gmail.com");
         pswMdp.setText("y1234");
         
-        btnInscrire.setLabel("S'inscrire");
-        btnValider.setLabel("Valider");
+        btnInscrire.setLabel(Libelle.SINSCRIRE);
+        btnValider.setLabel(Libelle.VALIDER);
         
         if(erreur){            
-            lblErreur.setText("Votre email ou mot de passe n'est pas correct, veuillez réessayer");
+            lblErreur.setText(Libelle.ERR_EMAIL_MDP);
         }
     }
 

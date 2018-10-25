@@ -5,6 +5,9 @@
  */
 package vue;
 
+import utilitaire.Civilite;
+import utilitaire.Libelle;
+
 /**
  *
  * @author caoyang
@@ -61,8 +64,8 @@ public class VueInscrire extends javax.swing.JFrame {
         lblDateNaissSaisie = new javax.swing.JLabel();
         lblGroupeSang = new javax.swing.JLabel();
         lblGroupeSangSaisie = new javax.swing.JLabel();
-        lblRhesus = new javax.swing.JLabel();
-        lblRhesusSaisie = new javax.swing.JLabel();
+        lblNationalite = new javax.swing.JLabel();
+        lblNationaliteSaisie = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         lblVehicule = new javax.swing.JLabel();
         lblNumV = new javax.swing.JLabel();
@@ -80,6 +83,8 @@ public class VueInscrire extends javax.swing.JFrame {
         lblAnneeSaisie = new javax.swing.JLabel();
         cboVille = new javax.swing.JComboBox<>();
         cboPays = new javax.swing.JComboBox<>();
+        lblSexe = new javax.swing.JLabel();
+        lblSexeSaisie = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -90,7 +95,7 @@ public class VueInscrire extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(663, 489));
 
-        btnDeconnecter.setText("jButton1");
+        btnDeconnecter.setText("btnDeconnecter");
 
         lblStatut.setForeground(new java.awt.Color(255, 51, 102));
         lblStatut.setText("jLabel1");
@@ -137,9 +142,9 @@ public class VueInscrire extends javax.swing.JFrame {
 
         lblGroupeSangSaisie.setText("jLabel20");
 
-        lblRhesus.setText("jLabel21");
+        lblNationalite.setText("jLabel21");
 
-        lblRhesusSaisie.setText("jLabel22");
+        lblNationaliteSaisie.setText("jLabel22");
 
         lblVehicule.setText("jLabel23");
 
@@ -172,6 +177,10 @@ public class VueInscrire extends javax.swing.JFrame {
         cboVille.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         cboPays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblSexe.setText("jLabel1");
+
+        lblSexeSaisie.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,13 +285,16 @@ public class VueInscrire extends javax.swing.JFrame {
                                     .addComponent(lblGroupeSang))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPrenomSaisie)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblGroupeSangSaisie)
-                                        .addGap(77, 77, 77)
-                                        .addComponent(lblRhesus)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblRhesusSaisie)))))
+                                    .addComponent(lblGroupeSangSaisie)
+                                    .addComponent(lblPrenomSaisie))
+                                .addGap(77, 77, 77)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNationalite)
+                                    .addComponent(lblSexe))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSexeSaisie)
+                                    .addComponent(lblNationaliteSaisie))))
                         .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -334,15 +346,17 @@ public class VueInscrire extends javax.swing.JFrame {
                     .addComponent(lblNom)
                     .addComponent(lblNomSaisie)
                     .addComponent(lblPrenom)
-                    .addComponent(lblPrenomSaisie))
+                    .addComponent(lblPrenomSaisie)
+                    .addComponent(lblSexe)
+                    .addComponent(lblSexeSaisie))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDateNaiss)
                     .addComponent(lblDateNaissSaisie)
                     .addComponent(lblGroupeSang)
                     .addComponent(lblGroupeSangSaisie)
-                    .addComponent(lblRhesus)
-                    .addComponent(lblRhesusSaisie))
+                    .addComponent(lblNationalite)
+                    .addComponent(lblNationaliteSaisie))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -365,6 +379,36 @@ public class VueInscrire extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dessinerInscrireCompte(){
+        btnDeconnecter.setText(Libelle.DECONNECTER);
+        btnAnnuler.setText(Libelle.ANNULER);
+        btnEnvoyer.setText(Libelle.ENVOYER);
+        
+        lblInscription.setText(Libelle.INSCRIPTION);
+        
+        lblRallye.setText(Libelle.RALLYE);
+        lblEdition.setText(Libelle.EDITION);
+        lblPays.setText(Libelle.PAYS);
+        lblVille.setText(Libelle.VILLE);
+        lblDates.setText(Libelle.DATES);
+        lblDateDeb.setText(Libelle.DATEDEB);
+        lblDateFin.setText(Libelle.DATEFIN);
+        
+        lblNom.setText(Libelle.NOM);
+        lblPrenom.setText(Libelle.PRENOM);
+        lblDateNaiss.setText(Libelle.DATENAISSANCE);
+        lblGroupeSang.setText(Libelle.GROUPESANGUIN);
+        lblNationalite.setText(Libelle.NATIONALITE);
+        lblSexe.setText(Libelle.SEXE);
+        
+        //charger les infos de coureur
+        
+        cboRallye.removeAllItems();
+        //charger tous les rallyes
+        cboEdition.removeAllItems();
+        cboPays.removeAllItems();
+        cboVille.removeAllItems();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnnuler;
@@ -402,6 +446,8 @@ public class VueInscrire extends javax.swing.JFrame {
     private javax.swing.JLabel lblGroupeSang;
     private javax.swing.JLabel lblGroupeSangSaisie;
     private javax.swing.JLabel lblInscription;
+    private javax.swing.JLabel lblNationalite;
+    private javax.swing.JLabel lblNationaliteSaisie;
     private javax.swing.JLabel lblNom;
     private javax.swing.JLabel lblNomSaisie;
     private javax.swing.JLabel lblNumC;
@@ -413,8 +459,8 @@ public class VueInscrire extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrenomSaisie;
     private javax.swing.JLabel lblPuissance;
     private javax.swing.JLabel lblRallye;
-    private javax.swing.JLabel lblRhesus;
-    private javax.swing.JLabel lblRhesusSaisie;
+    private javax.swing.JLabel lblSexe;
+    private javax.swing.JLabel lblSexeSaisie;
     private javax.swing.JLabel lblStatut;
     private javax.swing.JLabel lblVehicule;
     private javax.swing.JLabel lblVille;

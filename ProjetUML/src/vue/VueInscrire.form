@@ -197,14 +197,18 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPrenomSaisie" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblGroupeSangSaisie" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                                      <Component id="lblRhesus" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblRhesusSaisie" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblGroupeSangSaisie" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPrenomSaisie" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNationalite" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSexe" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSexeSaisie" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNationaliteSaisie" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -271,6 +275,8 @@
                   <Component id="lblNomSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblPrenomSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSexe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSexeSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -278,8 +284,8 @@
                   <Component id="lblDateNaissSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblGroupeSang" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblGroupeSangSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRhesus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRhesusSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNationalite" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNationaliteSaisie" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
@@ -307,7 +313,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnDeconnecter">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="btnDeconnecter"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblStatut">
@@ -425,12 +431,12 @@
         <Property name="text" type="java.lang.String" value="jLabel20"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRhesus">
+    <Component class="javax.swing.JLabel" name="lblNationalite">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel21"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRhesusSaisie">
+    <Component class="javax.swing.JLabel" name="lblNationaliteSaisie">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel22"/>
       </Properties>
@@ -556,6 +562,16 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSexe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSexeSaisie">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
